@@ -1,0 +1,17 @@
+# Ignorar arquivos de build e dependências
+node_modules/
+dist/
+build/
+out/
+
+# Ignorar configurações de IDEs (VS Code e JetBrains)
+.idea/
+.vscode/
+*.swp
+
+# Ignorar arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Se usar Python
+__pycache__/
