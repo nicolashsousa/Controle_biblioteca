@@ -34,7 +34,7 @@ Funcionalidades do Sistema
 - O sistema solicita o código do livro e exibe a quantidade disponível no momento.
 
 **Realizar empréstimo**
-- O sistema solicita o código do livro e verifica se há pelo menos 1 exemplar disponível.
+- O sistema solicita o código do livro e verifica se há pelo menos 2 exemplares disponiveis (1 livro deve ficar na biblioteca para mantes o acervo local)
 
 - Se houver, decrementa 1 da quantidade e exibe a mensagem "Empréstimo realizado".
 
