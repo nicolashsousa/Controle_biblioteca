@@ -1,17 +1,20 @@
-# Ignorar arquivos de build e dependências
-node_modules/
-dist/
-build/
-out/
+venv/
+.venv/
+env/
+ENV/
 
-# Ignorar configurações de IDEs (VS Code e JetBrains)
-.idea/
+__pycache__/
+*.pyc
+
+build/
+dist/
+*.egg-info/
+
 .vscode/
+.idea/
 *.swp
 
-# Ignorar arquivos temporários do sistema
 .DS_Store
 Thumbs.db
 
-# Se usar Python
-__pycache__/
+.env
