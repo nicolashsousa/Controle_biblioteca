@@ -3,39 +3,42 @@ Atividade da Disciplina Tecnicas de programação do Curso de Licenciatura em Co
 Problema fictício
 -
 O IFPI Zona Sul deseja informatizar o controle de empréstimos de sua biblioteca. Para isso, o coordenador pediu aos alunos do curso de Computação que desenvolvessem um sistema simples para gerenciar o cadastro de livros e o empréstimo.
+# 📖 Controle de Biblioteca
 
-O sistema funcionará de forma semelhante a uma conta bancária, mas, em vez de saldo em dinheiro, haverá quantidade de livros disponíveis para cada título.
+Um simples sistema de gerenciamento de biblioteca via linha de comando (CLI) escrito em Python.
 
-As funcionalidades do sistema serão:
+## 📝 Descrição
 
-- Cadastrar livro;
+Este projeto é uma aplicação de console que permite ao usuário gerenciar uma pequena coleção de livros. É possível cadastrar novos títulos, adicionar exemplares, consultar a quantidade disponível e registrar empréstimos, tudo através de um menu interativo.
 
-- Listar livros;
+## ✨ Funcionalidades
 
-- Adicionar exemplares;
+-   **Cadastrar Livro:** Adiciona um novo título de livro à biblioteca.
+-   **Listar Livros:** Exibe todos os livros cadastrados com seus respectivos códigos e quantidades.
+-   **Adicionar Exemplares:** Aumenta a quantidade de cópias de um livro existente.
+-   **Consultar Quantidade:** Verifica quantos exemplares de um livro específico estão disponíveis.
+-   **Realizar Empréstimo:** Diminui em um a quantidade de exemplares de um livro ao ser emprestado.
+-   **Sair:** Encerra o programa.
 
-- Consultar quantidade disponível;
+## 🚀 Tecnologias Utilizadas
 
-- Realizar empréstimo.
+-   ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
-Funcionalidades do Sistema
--
+## ⚙️ Como Usar
 
-**Cadastrar livro**
-- O sistema solicita o nome do livro. Ao informar o título, ele é adicionado à lista de livros e, simultaneamente, é criada uma entrada na lista de quantidades, com valor inicial 0.
+1.  Certifique-se de ter o [Python 3](https://www.python.org/downloads/) instalado em sua máquina.
+2.  Clone este repositório ou baixe o arquivo `Controle_biblioteca.py`.
+3.  Navegue até o diretório do projeto pelo seu terminal.
+4.  Execute o script com o seguinte comando:
 
-**Listar livros**
-- O sistema exibe todos os títulos cadastrados e seus respectivos índices (códigos).
+    ```bash
+    python Controle_biblioteca.py
+    ```
 
-**Adicionar exemplares**
-- O sistema solicita o código do livro e a quantidade de exemplares a adicionar. Essa quantidade é somada ao valor atual na lista de quantidades.
+5.  Siga as instruções apresentadas no menu interativo para gerenciar a biblioteca.
 
-**Consultar quantidade disponível**
-- O sistema solicita o código do livro e exibe a quantidade disponível no momento.
+## 👤 Autor
 
-**Realizar empréstimo**
-- O sistema solicita o código do livro e verifica se há pelo menos 2 exemplares disponiveis (1 livro deve ficar na biblioteca para mantes o acervo local)
+**Nícolas H. Sousa Carvalho**
 
-- Se houver, decrementa 1 da quantidade e exibe a mensagem "Empréstimo realizado".
-
-- Caso contrário, exibe "Livro indisponível".
+[!LinkedIn](www.linkedin.com/in/nícolas-h-053a53396)

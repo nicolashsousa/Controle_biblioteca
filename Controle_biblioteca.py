@@ -1,70 +1,94 @@
 #Controle de biblioteca
-livros = []
-quantidades = []
+biblioteca = []
+
 def cadastrar_livro():
     livro = input("Digite o nome do livro: ").title()
-    livros.append(livro)
+    for item in biblioteca:
+        if item['nome'] == livro:
+            print(f"O livro '{livro}' já está cadastrado.")
+            return
+
+    biblioteca.append({'nome': livro, 'quantidade': 0})
     print(f"Livro {livro} cadastrado com sucesso!")
-    quantidade = int(0)
-    quantidades.append(quantidade)
 
 def listar_livros():
-    if not livros:
+    if not biblioteca:
         print("Nenhum livro encontrado.")
     else:
         print("Livros encontrados:")
-        for i, livro in enumerate(livros):
-            print(f"{i + 1}. {livro} - Quantidade: {quantidades[i]} ")
+        for i, livro in enumerate(biblioteca):
+            print(f"{i + 1}. {livro['nome']} - Quantidade: {livro['quantidade']}")
+
+def selecionar_livro():
+    listar_livros()
+    if not biblioteca:
+        return None
+
+    try:
+        codigo = int(input("Digite o código do livro (ex: 1 para o primeiro): ")) - 1
+        if 0 <= codigo < len(biblioteca):
+            return biblioteca[codigo]
+        else:
+            print("Código inválido.")
+            return None
+    except ValueError:
+        print("Entrada inválida. Por favor, digite um número.")
+        return None
 
 def adicionar_exemplares():
-    codigo = int(input("Digite o codigo do livro (1 para primeiro, 2 para o segundo, etc.):"))-1
-    quantia = int(input("Digite a quantidade de exemplares a ser adicionado: "))
-    if 0 <= (codigo) < len(livros):
-        quantidades[codigo] += quantia
-        print(f"{quantia} exemplares de {livros[codigo]} adicionados.")
-    else:
-        print("Código inválido.")
+    livro_selecionado = selecionar_livro()
+    if livro_selecionado:
+        try:
+            quantia = int(input("Digite a quantidade de exemplares a ser adicionada: "))
+            if quantia > 0:
+                livro_selecionado['quantidade'] += quantia
+                print(f"{quantia} exemplares de '{livro_selecionado['nome']}' adicionados.")
+            else:
+                print("A quantidade deve ser um número positivo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número.")
 
 def consultar_quantidade():
-    codigo = int(input("Digite o código do livro (1 para primeiro, 2 para segundo, etc.): "))-1
-    if 0 <= codigo < len(livros):
-        print(f"{quantidades[codigo]} exemplares de {livros[codigo]} disponiveis")
-    else:
-        print("Código inválido.")
+    livro_selecionado = selecionar_livro()
+    if livro_selecionado:
+        print(f"'{livro_selecionado['nome']}' tem {livro_selecionado['quantidade']} exemplares disponíveis.")
 
 def realizar_empréstimo():
-    codigo = int(input("Digite o código do livro (1 para primeiro, 2 para segundo, etc.): "))-1
-    if 0 <= codigo < len(livros):
-        if quantidades[codigo] >= 2:
-            quantidades[codigo] -= 1
-            print("Livro alugado")
-            print(f"{livros[codigo]} alugado. Quantidade de exemplares restante: {quantidades[codigo]}")
+    livro_selecionado = selecionar_livro()
+    if livro_selecionado:
+        if livro_selecionado['quantidade'] >= 1:
+            livro_selecionado['quantidade'] -= 1
+            print(f"Empréstimo de '{livro_selecionado['nome']}' realizado com sucesso.")
+            print(f"Quantidade de exemplares restante: {livro_selecionado['quantidade']}")
         else:
-            print("Livro indisponivel")
-    else:
-        print("Código inválido.")
+            print(f"Livro '{livro_selecionado['nome']}' indisponível para empréstimo.")
 
-while True:
-    print("\nMenu:")
-    print("1. Cadastrar livro")
-    print("2. Listar livros")
-    print("3. Adicionar exemplares")
-    print("4. Consultar quantidade de exemplares")
-    print("5. Realizar empréstimo")
-    print("6. Sair")
-    escolha = input("Escolha uma opção: ")
-    if escolha == '1':
-        cadastrar_livro()
-    elif escolha == '2':
-        listar_livros()
-    elif escolha == '3':
-        adicionar_exemplares()
-    elif escolha == '4':
-        consultar_quantidade()
-    elif escolha == '5':
-        realizar_empréstimo()
-    elif escolha == '6':
-        print("Sistema fechado.")
-        break
-    else:
-        print("Opção inválida. Tente novamente.")
+def main():
+    while True:
+        print("\n--- Menu da Biblioteca ---")
+        print("1. Cadastrar livro")
+        print("2. Listar livros")
+        print("3. Adicionar exemplares")
+        print("4. Consultar quantidade")
+        print("5. Realizar empréstimo")
+        print("6. Sair")
+        escolha = input("Escolha uma opção: ")
+
+        if escolha == '1':
+            cadastrar_livro()
+        elif escolha == '2':
+            listar_livros()
+        elif escolha == '3':
+            adicionar_exemplares()
+        elif escolha == '4':
+            consultar_quantidade()
+        elif escolha == '5':
+            realizar_empréstimo()
+        elif escolha == '6':
+            print("Sistema fechado.")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
