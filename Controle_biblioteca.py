@@ -2,7 +2,12 @@
 biblioteca = []
 
 def cadastrar_livro():
-    livro = input("Digite o nome do livro: ").title()
+    livro = input("Digite o nome do livro: ").strip().title()
+    
+    if not livro:
+        print("O nome do livro não pode ser vazio.")
+        return
+
     for item in biblioteca:
         if item['nome'] == livro:
             print(f"O livro '{livro}' já está cadastrado.")
