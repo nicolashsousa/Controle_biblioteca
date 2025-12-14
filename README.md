@@ -32,7 +32,7 @@ Este projeto é uma aplicação de console que permite ao usuário gerenciar uma
 4.  Execute o script com o seguinte comando:
 
     ```bash
-    python Controle_biblioteca.py
+    python src/Controle_biblioteca.py
     ```
 
 5.  Siga as instruções apresentadas no menu interativo para gerenciar a biblioteca.
