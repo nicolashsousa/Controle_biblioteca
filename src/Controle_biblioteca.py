@@ -13,7 +13,7 @@ def cadastrar_livro():
             print(f"O livro '{livro}' já está cadastrado.")
             return
 
-    biblioteca.append({'nome': livro, 'quantidade': 0})
+    biblioteca.append({'nome': livro, 'quantidade': 0, 'total_exemplares': 0})
     print(f"Livro {livro} cadastrado com sucesso!")
 
 def listar_livros():
@@ -47,6 +47,7 @@ def adicionar_exemplares():
             quantia = int(input("Digite a quantidade de exemplares a ser adicionada: "))
             if quantia > 0:
                 livro_selecionado['quantidade'] += quantia
+                livro_selecionado['total_exemplares'] += quantia
                 print(f"{quantia} exemplares de '{livro_selecionado['nome']}' adicionados.")
             else:
                 print("A quantidade deve ser um número positivo.")
@@ -58,7 +59,7 @@ def consultar_quantidade():
     if livro_selecionado:
         print(f"'{livro_selecionado['nome']}' tem {livro_selecionado['quantidade']} exemplares disponíveis.")
 
-def realizar_empréstimo():
+def realizar_emprestimo():
     livro_selecionado = selecionar_livro()
     if livro_selecionado:
         if livro_selecionado['quantidade'] >= 1:
@@ -68,6 +69,18 @@ def realizar_empréstimo():
         else:
             print(f"Livro '{livro_selecionado['nome']}' indisponível para empréstimo.")
 
+def devolver_emprestimo():
+    livro_devolucao = selecionar_livro()
+    if livro_devolucao:
+        if livro_devolucao['quantidade'] < livro_devolucao['total_exemplares']:
+            livro_devolucao['quantidade'] += 1
+            print(f"Devolução de '{livro_devolucao['nome']}' realizada com sucesso.")
+            print(f"Quantidade de exemplares restante: {livro_devolucao['quantidade']}")
+        else:
+            print("Não há exemplares emprestados deste livro. O livro não pertence à nossa biblioteca.")
+
+
+
 def main():
     while True:
         print("\n--- Menu da Biblioteca ---")
@@ -76,7 +89,8 @@ def main():
         print("3. Adicionar exemplares")
         print("4. Consultar quantidade")
         print("5. Realizar empréstimo")
-        print("6. Sair")
+        print("6. Devolver empréstimo")
+        print("7. Sair")
         escolha = input("Escolha uma opção: ")
 
         if escolha == '1':
@@ -88,8 +102,10 @@ def main():
         elif escolha == '4':
             consultar_quantidade()
         elif escolha == '5':
-            realizar_empréstimo()
+            realizar_emprestimo()
         elif escolha == '6':
+            devolver_emprestimo()
+        elif escolha == '7':
             print("Sistema fechado.")
             break
         else:
