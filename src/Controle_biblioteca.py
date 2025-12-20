@@ -2,7 +2,13 @@ import json
 import os
 
 # Constante para o nome do arquivo de dados
-ARQUIVO_DADOS = "biblioteca.json"
+# Define o caminho para a pasta 'data' na raiz do projeto (um nível acima de src)
+DIRETORIO_RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIRETORIO_DADOS = os.path.join(DIRETORIO_RAIZ, "data")
+ARQUIVO_DADOS = os.path.join(DIRETORIO_DADOS, "biblioteca.json")
+
+if not os.path.exists(DIRETORIO_DADOS):
+    os.makedirs(DIRETORIO_DADOS)
 
 def carregar_dados():
     if os.path.exists(ARQUIVO_DADOS):
