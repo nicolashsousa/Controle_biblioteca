@@ -1,9 +1,8 @@
-Atividade da Disciplina Tecnicas de programação do Curso de Licenciatura em Computação.
-- 
-Problema fictício
--
-O IFPI Zona Sul deseja informatizar o controle de empréstimos de sua biblioteca. Para isso, o coordenador pediu aos alunos do curso de Computação que desenvolvessem um sistema simples para gerenciar o cadastro de livros e o empréstimo.
 # 📖 Controle de Biblioteca
+
+> **Atividade da Disciplina de Técnicas de Programação do Curso de Licenciatura em Computação.**
+>
+> **Problema fictício:** O IFPI Zona Sul deseja informatizar o controle de empréstimos de sua biblioteca. Para isso, o coordenador pediu aos alunos do curso de Computação que desenvolvessem um sistema simples para gerenciar o cadastro de livros e o empréstimo.
 
 Um simples sistema de gerenciamento de biblioteca via linha de comando (CLI) escrito em Python.
 
